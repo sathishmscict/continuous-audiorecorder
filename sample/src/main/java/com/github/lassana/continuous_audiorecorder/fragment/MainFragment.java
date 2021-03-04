@@ -13,11 +13,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.NonNull;
+import com.google.android.material.snackbar.Snackbar;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +25,7 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.github.lassana.continuous_audiorecorder.R;
 import com.github.lassana.continuous_audiorecorder.RecorderApplication;
@@ -130,7 +131,7 @@ public class MainFragment extends Fragment {
                 + File.separator
                 + "Record_"
                 + System.currentTimeMillis()
-                + ".mp4";
+                + ".m4a";//.mp4
     }
 
     private void invalidateViews() {
@@ -269,13 +270,14 @@ public class MainFragment extends Fragment {
     }
 
     private void play() {
+        Toast.makeText(getContext(),"File path mActiveRecordFileName : "+mActiveRecordFileName, Toast.LENGTH_SHORT).show();
         File file = new File(mActiveRecordFileName);
-        if (file.exists()) {
+        /*if (file.exists()) {
             Intent intent = new Intent();
             intent.setAction(android.content.Intent.ACTION_VIEW);
             intent.setDataAndType(Uri.fromFile(file), "audio/*");
             startActivity(intent);
-        }
+        }*/
     }
 
     /**

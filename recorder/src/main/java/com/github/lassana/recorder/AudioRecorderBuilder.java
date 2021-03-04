@@ -1,7 +1,7 @@
 package com.github.lassana.recorder;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Builder that creates a ready-to-use AudioRecorder.
